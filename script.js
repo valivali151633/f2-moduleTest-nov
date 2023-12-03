@@ -3,6 +3,7 @@ let activeTimers = 0;
 let activeTimersSection = document.getElementById("active-timers-section")
 const timeSetBtn =document.getElementById("set-btn");
 const noTimers = document.getElementById("noTimers");
+const audio = document.getElementById("audio-file");
 
   //adding event listner to set-btn to add multiple timers dynamically from the data collected by input
 timeSetBtn.addEventListener("click" , startNewTimer);
@@ -57,7 +58,7 @@ function updateActiveTimers(totalTimeInSeconds, newTimer ){
         <button class="delete-btn btn" onclick="deleteTimer(this)">Stop</button>`;
       
 
-      // Audio.play();
+      audio.play();
       clearInterval(timerUpdate);
     }else{
       --totalTimeInSeconds;
@@ -75,7 +76,7 @@ function updateActiveTimers(totalTimeInSeconds, newTimer ){
 
 // to activate delete button after completion of time
 function deleteTimer(deleteButton) {
-  // audio.pause();
+  audio.pause();
   let currentTimerCard = deleteButton.parentNode;
   currentTimerCard.remove();
   --activeTimers;
@@ -84,4 +85,8 @@ function deleteTimer(deleteButton) {
   }
 }
   
+// function playAudioAlert() {
+//   const audio = new Audio('./audio source/Amber Alert Sound Effect.mp3'); 
+//   audio.play();
+// }
   
